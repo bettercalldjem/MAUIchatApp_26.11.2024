@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ChatApp.ChatPage">
+
+    <StackLayout Padding="10">
+        <Label Text="Чат" FontSize="24" HorizontalOptions="Center"/>
+
+        <!-- Привязка коллекции сообщений -->
+        <ListView x:Name="MessagesListView" ItemsSource="{Binding Messages}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Text}" Detail="{Binding Timestamp}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry x:Name="MessageEntry" Placeholder="Введите сообщение..." />
+        <Button Text="Отправить" Clicked="OnSendMessageClicked"/>
+    </StackLayout>
+</ContentPage>
